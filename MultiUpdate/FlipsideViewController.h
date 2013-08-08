@@ -7,17 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class FlipsideViewController;
-
-@protocol FlipsideViewControllerDelegate
-- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller;
-@end
+#import "AccountScreenViewController.h"
+#import "MainViewController.h"
 
 @interface FlipsideViewController : UIViewController
 
-@property (weak, nonatomic) id <FlipsideViewControllerDelegate> delegate;
-
-- (IBAction)done:(id)sender;
+- (IBAction)back;
+- (IBAction)switchtolinkaccounts;
 
 @end

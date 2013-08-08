@@ -8,14 +8,45 @@
 
 #import "FlipsideViewController.h"
 
-@interface FlipsideViewController ()
+@interface FlipsideViewController () @end @implementation FlipsideViewController
 
-@end
+/*
+    Changing Views
+    Link Accounts, Remove Accounts, What Accounts to use for Post, Help/Documentatio
+*/
 
-@implementation FlipsideViewController
+//Link Accounts
+- (void)AccountScreenViewControllerDidFinish:(AccountScreenViewController *)controller
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
 
-@synthesize delegate = _delegate;
+-(IBAction)switchtolinkaccounts
+{
+    AccountScreenViewController *controller = [[AccountScreenViewController alloc] initWithNibName:@"AccountScreenViewController" bundle:nil];
+    controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentModalViewController:controller animated:YES];
+}
 
+//Main View
+- (void) MainViewControllerDidFinish:(MainViewController *)controller
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+-(IBAction) back
+{
+    MainViewController *controller = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentModalViewController:controller animated:YES];
+}
+
+
+
+
+/*
+    Other
+*/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -28,16 +59,5 @@
     // Release any retained subviews of the main view.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
-
-#pragma mark - Actions
-
-- (IBAction)done:(id)sender
-{
-    [self.delegate flipsideViewControllerDidFinish:self];
-}
 
 @end

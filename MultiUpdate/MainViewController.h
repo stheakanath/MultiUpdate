@@ -7,9 +7,15 @@
 //
 
 #import "FlipsideViewController.h"
+#import "AppDelegate.h"
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate>
+@interface MainViewController : UIViewController <UITextViewDelegate>
+{
+    UITextView *texttopost;
+    UIImageView *backgroundfortext;
+}
 
-- (IBAction)showInfo:(id)sender;
+- (IBAction)post;
+- (IBAction)gotosettings:(id)sender;
 
 @end
